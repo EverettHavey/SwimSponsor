@@ -1,5 +1,11 @@
 // Data for all sponsors (same as before)
 const sponsors = [
+    { 
+        name: "Frismcord", 
+        logo: "images/frismcord-logo.png", // Assuming you'll create an image named frismcord-logo.png
+        description: "The ultimate communication platform for gamers and communities, offering crystal-clear voice, seamless video, and advanced moderation tools with unparalleled privacy and customization. Elevating your online experience beyond anything seen before.", 
+        sponsorshipValue: "$20M - $30M/year" // Reflecting its "even better than Discord" status with high sponsorship value
+    },
     { name: "McDonald's", logo: "images/mcdonalds-logo.png", description: "Global fast-food giant.", sponsorshipValue: "$10M - $15M/year" },
     { name: "Coca-Cola", logo: "images/coca-cola-logo.png", description: "World's largest beverage company.", sponsorshipValue: "$12M - $18M/year" },
     { name: "O'Reilly Auto Parts", logo: "images/oreilly-logo.png", description: "Automotive parts retailer.", sponsorshipValue: "$5M - $8M/year" },
