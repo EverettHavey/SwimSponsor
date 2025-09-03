@@ -1,57 +1,102 @@
-/* General Layout and Color Scheme */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f4f8; /* Light Gray */
-    color: #333;
+/* Import Google Fonts for a professional look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- General and Global Styles --- */
+:root {
+    --light-blue: #e3f2fd;
+    --dark-blue: #1565c0;
+    --primary-blue: #2196f3;
+    --light-gray: #f4f6f8;
+    --dark-gray: #4a4a4a;
+    --text-color: #333;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--dark-blue);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Header and Navigation --- */
 header {
-    background-color: #b3e0ff; /* Light Blue */
-    color: #333;
-    padding: 1rem 2rem;
+    background-color: var(--light-blue);
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .logo {
     font-size: 1.8rem;
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--dark-blue);
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     display: flex;
 }
 
 nav ul li {
-    margin-left: 25px;
+    margin-left: 2rem;
 }
 
 nav a {
-    color: #333;
-    text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    color: var(--dark-gray);
+    position: relative;
 }
 
-nav a:hover {
-    color: #007BFF; /* Darker blue for hover */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
+nav a:hover::after,
+nav a.active::after {
+    transform: scaleX(1);
+}
+
+/* --- Buttons and Forms --- */
 .cta-button {
-    background-color: #007BFF;
+    background-color: var(--primary-blue);
     color: white;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
@@ -59,188 +104,220 @@ nav a:hover {
 }
 
 .cta-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+    background-color: var(--dark-blue);
+    transform: translateY(-3px);
 }
 
-/* Sponsors Page Specific Styles */
-.sponsors-list-section {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.intro-text {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.intro-text h1 {
-    font-size: 2.5rem;
-    color: #0056b3;
-}
-
-.search-container {
-    position: relative;
-    max-width: 500px;
-    margin: 0 auto 40px;
-}
-
-#searchBar {
+input, textarea {
     width: 100%;
-    padding: 15px 45px 15px 20px;
-    border: 2px solid #b3e0ff;
-    border-radius: 50px;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
 }
 
-#searchBar:focus {
+input:focus, textarea:focus {
     outline: none;
-    border-color: #007BFF;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
 }
 
-.search-container .fas {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
+/* --- Main Sections and Cards --- */
+main {
+    padding: 2rem 0;
 }
 
-.sponsor-grid {
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--dark-blue);
+}
+
+.hero-section {
+    text-align: center;
+    padding: 6rem 0;
+    background-color: var(--light-blue);
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: var(--dark-gray);
+}
+
+.sponsor-grid, .job-listings {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 2rem;
 }
 
-.sponsor-card {
+.sponsor-card, .job-card {
     background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.sponsor-card:hover {
+.sponsor-card:hover, .job-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 .sponsor-card img {
-    max-width: 120px;
+    max-width: 100%;
     height: auto;
-    margin-bottom: 15px;
+    max-height: 100px;
+    margin-bottom: 1rem;
 }
 
-.sponsor-card h3 {
+.sponsor-card h3, .job-card h3 {
     font-size: 1.5rem;
-    color: #0056b3;
-    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin: 0.5rem 0;
 }
 
-.sponsor-card p {
+.sponsor-card p, .job-card p {
     font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 15px;
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
 }
 
 .sponsor-card .value {
     font-weight: 700;
-    color: #007BFF;
+    color: var(--primary-blue);
     font-size: 1.1rem;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
-.sponsor-card .cta-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
+/* --- Search Bar --- */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
 }
 
-/* Modal Styling */
+#searchBar {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchBar:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.search-container .fas {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.2rem;
+}
+
+/* --- Modal Styling (Application Form) --- */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    display: none;
+    position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
     max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
 }
 
 .close-button {
     color: #aaa;
-    float: right;
-    font-size: 28px;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-.close-button:hover, .close-button:focus {
+.close-button:hover {
     color: #000;
-    text-decoration: none;
 }
 
 #applicationForm {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-#applicationForm label {
-    font-weight: 600;
-    color: #555;
-}
-
-#applicationForm input, #applicationForm textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 1rem;
-}
-
-#applicationForm textarea {
-    resize: vertical;
-}
-
-.thankyou-section {
-    text-align: center;
-    padding: 50px 20px;
-    max-width: 800px;
-    margin: 50px auto;
+/* --- Other Pages Styling (About, Careers, Thank You) --- */
+.about-section, .careers-section, .thankyou-section {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    margin: 2rem auto;
 }
 
 .thankyou-section h1 {
-    color: #007BFF;
-    font-size: 2.5rem;
+    color: var(--primary-blue);
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-/* Add styles for other new pages here if not done already */
-.about-section, .contact-section, .careers-section {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: 40px auto;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.thankyou-section p {
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    margin-bottom: 2rem;
+}
+
+.job-card .cta-button {
+    margin-top: 1rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: 300;
 }

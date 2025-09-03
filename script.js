@@ -1,4 +1,4 @@
-// Data for all sponsors
+// Data for all sponsors (same as before)
 const sponsors = [
     { name: "McDonald's", logo: "images/mcdonalds-logo.png", description: "Global fast-food giant.", sponsorshipValue: "$10M - $15M/year" },
     { name: "Coca-Cola", logo: "images/coca-cola-logo.png", description: "World's largest beverage company.", sponsorshipValue: "$12M - $18M/year" },
@@ -26,11 +26,18 @@ const sponsors = [
 const sponsorContainer = document.getElementById('sponsorContainer');
 const searchBar = document.getElementById('searchBar');
 
+// Modal Elements
+const modal = document.getElementById('applicationModal');
+const closeBtn = document.querySelector('.close-button');
+const applicationForm = document.getElementById('applicationForm');
+const modalSponsorName = document.getElementById('modal-sponsor-name');
+const sponsorNameHidden = document.getElementById('sponsorNameHidden');
+
 // Function to display sponsors
 function displaySponsors(sponsorsToDisplay) {
-    if (!sponsorContainer) return; // Exit if not on the sponsors.html page
-    
-    sponsorContainer.innerHTML = ''; // Clear previous content
+    if (!sponsorContainer) return;
+
+    sponsorContainer.innerHTML = '';
     sponsorsToDisplay.forEach(sponsor => {
         const card = document.createElement('div');
         card.className = 'sponsor-card';
@@ -38,23 +45,59 @@ function displaySponsors(sponsorsToDisplay) {
             <img src="${sponsor.logo}" alt="${sponsor.name} Logo">
             <h3>${sponsor.name}</h3>
             <p>${sponsor.description}</p>
-            <p><strong>Sponsorship Value:</strong> ${sponsor.sponsorshipValue}</p>
-            <button onclick="alert('Applying for sponsorship with ${sponsor.name}!')">Apply</button>
+            <p class="value"><strong>Sponsorship Value:</strong> ${sponsor.sponsorshipValue}</p>
+            <button class="cta-button apply-btn" data-sponsor-name="${sponsor.name}">Apply</button>
         `;
         sponsorContainer.appendChild(card);
     });
+
+    document.querySelectorAll('.apply-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const sponsorName = e.target.dataset.sponsorName;
+            openApplicationModal(sponsorName);
+        });
+    });
 }
 
-// Check if search bar exists before adding event listener
+// Open modal function
+function openApplicationModal(sponsorName) {
+    modalSponsorName.textContent = `Apply for Sponsorship with ${sponsorName}`;
+    sponsorNameHidden.value = sponsorName;
+    modal.style.display = 'flex';
+    setTimeout(() => modal.classList.add('active'), 10); // Add active class after a short delay
+}
+
+// Close modal function
+closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    setTimeout(() => modal.style.display = 'none', 300); // Hide after transition
+});
+
+// Close modal if user clicks outside of it
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.classList.remove('active');
+        setTimeout(() => modal.style.display = 'none', 300);
+    }
+});
+
+// Handle form submission
+applicationForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(applicationForm);
+    console.log('Application Submitted:', Object.fromEntries(formData.entries()));
+    window.location.href = 'thankyou.html';
+});
+
+// Initial display and search functionality
 if (searchBar) {
     searchBar.addEventListener('keyup', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         const filteredSponsors = sponsors.filter(sponsor => {
-            return sponsor.name.toLowerCase().includes(searchTerm) || 
+            return sponsor.name.toLowerCase().includes(searchTerm) ||
                    sponsor.description.toLowerCase().includes(searchTerm);
         });
         displaySponsors(filteredSponsors);
     });
-    // Initial display of all sponsors if on the sponsors page
     displaySponsors(sponsors);
 }
