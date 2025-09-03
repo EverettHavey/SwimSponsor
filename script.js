@@ -9,6 +9,13 @@ const sponsors = [
     { name: "McDonald's", logo: "images/mcdonalds-logo.png", description: "Global fast-food giant.", sponsorshipValue: "$10M - $15M/year" },
     { name: "Coca-Cola", logo: "images/coca-cola-logo.png", description: "World's largest beverage company.", sponsorshipValue: "$12M - $18M/year" },
     { name: "O'Reilly Auto Parts", logo: "images/oreilly-logo.png", description: "Automotive parts retailer.", sponsorshipValue: "$5M - $8M/year" },
+    { 
+    name: "Raintrop Driving School", 
+    logo: "images/raintrop-logo.png",
+    description: "Providing comprehensive and safe driving education for new and experienced drivers, with a focus on defensive driving techniques and personalized instruction.", 
+    sponsorshipValue: "$1M - $3M/year" 
+    },
+    
     { name: "Quick Quack Car Wash", logo: "images/quick-quack-logo.png", description: "Fast and high-quality car wash services.", sponsorshipValue: "$3M - $6M/year" },
     { name: "Blockbuster", logo: "images/blockbuster-logo.png", description: "The legendary video rental service.", sponsorshipValue: "$4M - $7M/year" },
     { name: "M&M's", logo: "images/mms-logo.png", description: "Colorful chocolate candies.", sponsorshipValue: "$9M - $14M/year" },
