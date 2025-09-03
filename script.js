@@ -9,13 +9,6 @@ const sponsors = [
     { name: "McDonald's", logo: "images/mcdonalds-logo.png", description: "Global fast-food giant.", sponsorshipValue: "$10M - $15M/year" },
     { name: "Coca-Cola", logo: "images/coca-cola-logo.png", description: "World's largest beverage company.", sponsorshipValue: "$12M - $18M/year" },
     { name: "O'Reilly Auto Parts", logo: "images/oreilly-logo.png", description: "Automotive parts retailer.", sponsorshipValue: "$5M - $8M/year" },
-    { 
-    name: "Raintrop Driving School", 
-    logo: "images/raintrop-logo.png",
-    description: "Providing comprehensive and safe driving education for new and experienced drivers, with a focus on defensive driving techniques and personalized instruction.", 
-    sponsorshipValue: "$1M - $3M/year" 
-    },
-    
     { name: "Quick Quack Car Wash", logo: "images/quick-quack-logo.png", description: "Fast and high-quality car wash services.", sponsorshipValue: "$3M - $6M/year" },
     { name: "Blockbuster", logo: "images/blockbuster-logo.png", description: "The legendary video rental service.", sponsorshipValue: "$4M - $7M/year" },
     { name: "M&M's", logo: "images/mms-logo.png", description: "Colorful chocolate candies.", sponsorshipValue: "$9M - $14M/year" },
@@ -33,7 +26,20 @@ const sponsors = [
     { name: "Fathom Finance", logo: "images/fathom-logo.png", description: "Financial services for athletes.", sponsorshipValue: "$4M - $8M/year" },
     { name: "Current Casuals", logo: "images/current-logo.png", description: "Leisure wear for swimmers.", sponsorshipValue: "$3M - $6M/year" },
     { name: "SplashStream", logo: "images/splashstream-logo.png", description: "Online streaming service for swim meets.", sponsorshipValue: "$6M - $10M/year" },
-    { name: "Omega Car Wash", logo: "images/omega-carwash-logo.png", description: "Premium car detailing services.", sponsorshipValue: "$2M - $5M/year" }
+    { name: "Omega Car Wash", logo: "images/omega-carwash-logo.png", description: "Premium car detailing services.", sponsorshipValue: "$2M - $5M/year" },
+    { 
+    name: "Raintrop Driving School", 
+    logo: "images/raintrop-logo.png",
+    description: "Providing comprehensive and safe driving education for new and experienced drivers, with a focus on defensive driving techniques and personalized instruction.", 
+    sponsorshipValue: "$1M - $3M/year" 
+    },
+    { 
+    name: "Flashiez Driving School", 
+    logo: "images/flashiez-logo.png",
+    description: "Specializing in accelerated driving courses and advanced road skills. Get on the road faster with our expert instructors and cutting-edge simulators.", 
+    sponsorshipValue: "$1.5M - $4M/year" 
+    }
+
 ];
 
 const sponsorContainer = document.getElementById('sponsorContainer');
