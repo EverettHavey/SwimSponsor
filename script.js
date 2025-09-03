@@ -3,7 +3,7 @@ const sponsors = [
     { 
         name: "Frismcord", 
         logo: "images/frismcord-logo.png", // Assuming you'll create an image named frismcord-logo.png
-        description: "The ultimate communication platform for gamers and communities, offering crystal-clear voice, seamless video, and advanced moderation tools with unparalleled privacy and customization. Elevating your online experience beyond anything seen before.", 
+        description: "The best online messaging platform..", 
         sponsorshipValue: "$20M - $30M/year" // Reflecting its "even better than Discord" status with high sponsorship value
     },
     { name: "McDonald's", logo: "images/mcdonalds-logo.png", description: "Global fast-food giant.", sponsorshipValue: "$10M - $15M/year" },
