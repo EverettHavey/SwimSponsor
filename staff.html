@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Staff</title>
+    <style>
+        /* Import Google Fonts for a professional look */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        /* --- General and Global Styles --- */
+        :root {
+            --light-blue: #e3f2fd;
+            --dark-blue: #1565c0;
+            --primary-blue: #2196f3;
+            --light-gray: #f4f6f8;
+            --dark-gray: #4a4a4a;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Header and Navigation --- */
+        header {
+            background-color: var(--light-blue);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--dark-gray);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            transform: scaleX(1);
+        }
+        
+        /* --- Main Content --- */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .section-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--dark-blue);
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .staff-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .staff-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.2);
+        }
+        
+        .staff-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin: 0.5rem 0;
+        }
+        
+        .staff-card p {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .staff-card .title {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SwimSponsor</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="aboutus.html">About & Contact</a></li>
+                    <li><a href="staff.html" class="active">Our Staff</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="section-heading">Meet Our Team</h1>
+            <div id="staff-container" class="staff-grid">
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SwimSponsor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data for the staff members
+        const staffMembers = [
+            { 
+                name: "Alex Johnson", 
+                title: "CEO & Founder", 
+                bio: "Alex founded SwimSponsor with a passion for connecting athletes with opportunities.",
+                photo: "https://i.ibb.co/L5hY5B1/alex-johnson.jpg"
+            },
+            { 
+                name: "Maria Rodriguez", 
+                title: "Head of Partnerships", 
+                bio: "Maria builds and maintains strong relationships with our corporate sponsors.",
+                photo: "https://i.ibb.co/y4p16dJ/maria-rodriguez.jpg"
+            },
+            { 
+                name: "David Chen", 
+                title: "Athlete Relations Manager", 
+                bio: "David is the primary contact for our swimmers, ensuring they have the support they need.",
+                photo: "https://i.ibb.co/C5f4q5d/david-chen.jpg"
+            },
+            { 
+                name: "Emily White", 
+                title: "Marketing Director", 
+                bio: "Emily leads our marketing efforts to promote sponsored athletes and brand partnerships.",
+                photo: "https://i.ibb.co/tZ5m34Q/emily-white.jpg"
+            }
+        ];
+
+        // Function to create and display staff cards
+        function displayStaff() {
+            const staffContainer = document.getElementById('staff-container');
+            
+            // Loop through the staff members and create a card for each
+            staffMembers.forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'staff-card';
+                card.innerHTML = `
+                    <img src="${member.photo}" alt="${member.name} Photo">
+                    <h3>${member.name}</h3>
+                    <p class="title">${member.title}</p>
+                    <p>${member.bio}</p>
+                `;
+                staffContainer.appendChild(card);
+            });
+        }
+
+        // Call the function to display staff when the page loads
+        document.addEventListener('DOMContentLoaded', displayStaff);
+    </script>
+</body>
+</html>
